@@ -60,10 +60,10 @@ export default function Home() {
 
         <div className="text-center max-w-5xl mx-auto">
           {/* Main headline */}
-          <h1 className="text-[clamp(3rem,6vw,5.5rem)] font-medium leading-[1.05] tracking-[-0.03em] text-[#1a1a1a] mb-4">
+          <h1 className="text-[clamp(2.25rem,4.5vw,4rem)] font-normal leading-[1.05] tracking-[-0.03em] text-[#1a1a1a] mb-4">
             Where tomorrow&apos;s CEOs start today.
           </h1>
-          <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] font-medium leading-[1.05] tracking-[-0.03em] text-[#1a1a1a] mb-16">
+          <h2 className="text-[clamp(1.75rem,3.5vw,3rem)] font-normal leading-[1.05] tracking-[-0.03em] text-[#1a1a1a] mb-16">
             <span className="text-[#2ecc71]">Get</span> ready to build your own startup
           </h2>
 
