@@ -33,7 +33,7 @@ const MODULES_PREVIEW = [
 
 export default function CourseSection() {
   return (
-    <section className="relative bg-white py-24 overflow-hidden">
+    <section className="relative bg-transparent py-24 overflow-hidden">
       {/* Subtle background decoration */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#2ecc71]/[0.04] blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-[#3498db]/[0.04] blur-[80px] pointer-events-none" />
