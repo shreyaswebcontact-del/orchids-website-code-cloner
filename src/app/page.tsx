@@ -8,33 +8,43 @@ export default function Home() {
       {/* Header */}
       <header className="flex items-center justify-between px-8 py-6 relative z-10">
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M7 0L13 12H1L7 0Z" fill="white" />
             </svg>
           </div>
           <span className="font-bold text-lg">Future CEO</span>
-        </div>
+        </Link>
 
         {/* Center pill */}
         <div className="absolute left-1/2 -translate-x-1/2">
-          <button className="flex items-center gap-2 border border-[#e0e0e0] rounded-full px-5 py-2.5 text-sm text-[#444] hover:border-[#ccc] transition-colors">
+          <Link
+            href="/courses"
+            className="flex items-center gap-2 border border-[#e0e0e0] rounded-full px-5 py-2.5 text-sm text-[#444] hover:border-[#ccc] transition-colors"
+          >
             <span className="w-1.5 h-1.5 rounded-full bg-[#111]" />
             Waitlist is now open! Sign up Now
             <ChevronRight size={14} />
-          </button>
+          </Link>
         </div>
 
         {/* Right side */}
         <div className="flex items-center gap-3">
-          <button className="flex items-center gap-2 bg-[#111] text-white rounded-full px-5 py-2.5 text-sm font-medium hover:bg-[#222] transition-colors">
+          <Link
+            href="/courses"
+            className="flex items-center gap-2 bg-[#111] text-white rounded-full px-5 py-2.5 text-sm font-medium hover:bg-[#222] transition-colors"
+          >
             <Apple size={16} />
             DOWNLOAD
-          </button>
-          <button className="w-10 h-10 flex items-center justify-center rounded-full border border-[#e0e0e0] hover:border-[#ccc] transition-colors">
+          </Link>
+          <Link
+            href="/courses"
+            className="w-10 h-10 flex items-center justify-center rounded-full border border-[#e0e0e0] hover:border-[#ccc] transition-colors"
+            aria-label="Menu"
+          >
             <Menu size={18} />
-          </button>
+          </Link>
         </div>
       </header>
 
@@ -73,10 +83,13 @@ export default function Home() {
               Explore the Course
               <ArrowRight size={16} />
             </Link>
-            <button className="inline-flex items-center gap-2 border border-[#e0e0e0] hover:border-[#ccc] text-[#444] font-medium text-sm px-8 py-4 rounded-full transition-colors">
+            <Link
+              href="/courses/learn"
+              className="inline-flex items-center gap-2 border border-[#e0e0e0] hover:border-[#ccc] text-[#444] font-medium text-sm px-8 py-4 rounded-full transition-colors"
+            >
               <Play size={14} fill="#444" />
               Watch Preview
-            </button>
+            </Link>
           </div>
 
           {/* Trust indicators */}

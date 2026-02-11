@@ -384,9 +384,8 @@ function ModuleCard({ mod }: { mod: (typeof MODULES)[0] }) {
 
         <ChevronDown
           size={20}
-          className={`text-[#ccc] shrink-0 transition-transform duration-300 ${
-            open ? "rotate-180" : ""
-          }`}
+          className={`text-[#ccc] shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""
+            }`}
         />
       </button>
 
@@ -421,8 +420,9 @@ function ModuleCard({ mod }: { mod: (typeof MODULES)[0] }) {
             </p>
             <div className="space-y-1.5">
               {mod.lessons.map((l, i) => (
-                <div
+                <Link
                   key={i}
+                  href={`/courses/learn?module=${mod.id}&tab=lessons`}
                   className="flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#fafafa] text-sm hover:bg-[#f5f5f5] transition-colors"
                 >
                   <div className="flex items-center gap-3 text-[#444]">
@@ -437,7 +437,7 @@ function ModuleCard({ mod }: { mod: (typeof MODULES)[0] }) {
                     </span>
                     <span className="text-[#f1c40f] font-medium">+{l.xp} XP</span>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -449,8 +449,9 @@ function ModuleCard({ mod }: { mod: (typeof MODULES)[0] }) {
             </p>
             <div className="space-y-1.5">
               {mod.challenges.map((c, i) => (
-                <div
+                <Link
                   key={i}
+                  href={`/courses/learn?module=${mod.id}&tab=lessons`}
                   className="flex items-center justify-between py-2.5 px-4 rounded-xl bg-[#fafafa] text-sm hover:bg-[#f5f5f5] transition-colors"
                 >
                   <div className="flex items-center gap-2 text-[#444]">
@@ -458,14 +459,15 @@ function ModuleCard({ mod }: { mod: (typeof MODULES)[0] }) {
                     {c.name}
                   </div>
                   <span className="text-[#f1c40f] text-xs font-medium">+{c.xp} XP</span>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
 
           {/* Boss challenge */}
-          <div
-            className="flex items-center justify-between p-4 rounded-xl border-2 border-dashed"
+          <Link
+            href={`/courses/learn?module=${mod.id}&tab=mastery`}
+            className="flex items-center justify-between p-4 rounded-xl border-2 border-dashed hover:opacity-90 transition-opacity block"
             style={{ borderColor: `${mod.color}40`, background: `${mod.color}06` }}
           >
             <div className="flex items-center gap-3">
@@ -478,7 +480,7 @@ function ModuleCard({ mod }: { mod: (typeof MODULES)[0] }) {
               </div>
             </div>
             <span className="text-[#f1c40f] text-sm font-bold">+{mod.boss.xp} XP</span>
-          </div>
+          </Link>
 
           {/* Badges */}
           <div className="flex flex-wrap gap-2">
@@ -522,10 +524,13 @@ export default function CoursesPage() {
             </div>
             <span className="font-bold text-sm">Future CEO</span>
           </Link>
-          <button className="bg-[#2ecc71] hover:bg-[#27ae60] text-white font-bold text-sm px-5 py-2.5 rounded-full transition-colors flex items-center gap-2">
+          <Link
+            href="/courses/learn"
+            className="bg-[#2ecc71] hover:bg-[#27ae60] text-white font-bold text-sm px-5 py-2.5 rounded-full transition-colors flex items-center gap-2"
+          >
             <Rocket size={14} />
             Enroll Now
-          </button>
+          </Link>
         </div>
       </header>
 
@@ -579,10 +584,13 @@ export default function CoursesPage() {
                 <span className="flex items-center gap-1"><BookOpen size={12} /> 100% text-based</span>
                 <span className="flex items-center gap-1"><Zap size={12} /> Self-paced</span>
               </div>
-              <button className="mt-7 bg-[#2ecc71] hover:bg-[#27ae60] text-white font-bold text-base px-10 py-4 rounded-full transition-all hover:shadow-lg hover:shadow-[#2ecc71]/20 flex items-center gap-2">
+              <Link
+                href="/courses/learn"
+                className="mt-7 bg-[#2ecc71] hover:bg-[#27ae60] text-white font-bold text-base px-10 py-4 rounded-full transition-all hover:shadow-lg hover:shadow-[#2ecc71]/20 flex items-center gap-2"
+              >
                 <Rocket size={18} />
                 Enroll Now — Start Building
-              </button>
+              </Link>
               <p className="text-[11px] text-[#bbb] mt-3 flex items-center gap-1">
                 <Shield size={11} /> 30-day money-back guarantee
               </p>
@@ -627,11 +635,10 @@ export default function CoursesPage() {
             <button
               key={t.key}
               onClick={() => setActiveTab(t.key)}
-              className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all ${
-                activeTab === t.key
-                  ? "bg-[#2ecc71] text-white shadow-md shadow-[#2ecc71]/20"
-                  : "text-[#888] hover:text-[#555]"
-              }`}
+              className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all ${activeTab === t.key
+                ? "bg-[#2ecc71] text-white shadow-md shadow-[#2ecc71]/20"
+                : "text-[#888] hover:text-[#555]"
+                }`}
             >
               <t.icon size={15} />
               {t.label}
@@ -788,13 +795,12 @@ export default function CoursesPage() {
                         <span className="text-3xl block mb-2">{b.icon}</span>
                         <p className="text-[11px] text-[#555] font-medium leading-tight">{b.name}</p>
                         <span
-                          className={`text-[9px] uppercase font-bold tracking-wider mt-1.5 inline-block ${
-                            b.tier === "gold"
-                              ? "text-[#f1c40f]"
-                              : b.tier === "silver"
+                          className={`text-[9px] uppercase font-bold tracking-wider mt-1.5 inline-block ${b.tier === "gold"
+                            ? "text-[#f1c40f]"
+                            : b.tier === "silver"
                               ? "text-[#bbb]"
                               : "text-[#cd7f32]"
-                          }`}
+                            }`}
                         >
                           {b.tier}
                         </span>
@@ -889,15 +895,14 @@ export default function CoursesPage() {
                   {LEADERBOARD.map((p, i) => (
                     <Animate key={p.rank} delay={i * 0.06}>
                       <div
-                        className={`flex items-center justify-between p-4 rounded-xl transition-all hover:shadow-sm ${
-                          p.rank === 1
-                            ? "bg-[#f1c40f]/5 border border-[#f1c40f]/20"
-                            : p.rank === 2
+                        className={`flex items-center justify-between p-4 rounded-xl transition-all hover:shadow-sm ${p.rank === 1
+                          ? "bg-[#f1c40f]/5 border border-[#f1c40f]/20"
+                          : p.rank === 2
                             ? "bg-[#bbb]/5 border border-[#bbb]/15"
                             : p.rank === 3
-                            ? "bg-[#cd7f32]/5 border border-[#cd7f32]/15"
-                            : "bg-white border border-[#eee]"
-                        }`}
+                              ? "bg-[#cd7f32]/5 border border-[#cd7f32]/15"
+                              : "bg-white border border-[#eee]"
+                          }`}
                       >
                         <div className="flex items-center gap-4">
                           <span className="text-lg w-8 text-center font-bold">
@@ -1025,10 +1030,13 @@ export default function CoursesPage() {
               and building your real business today.
             </p>
             <div className="flex items-center justify-center gap-4 flex-wrap">
-              <button className="bg-[#2ecc71] hover:bg-[#27ae60] text-white font-bold text-base px-10 py-4 rounded-full transition-all hover:shadow-lg hover:shadow-[#2ecc71]/20 flex items-center gap-2">
+              <Link
+                href="/courses/learn"
+                className="bg-[#2ecc71] hover:bg-[#27ae60] text-white font-bold text-base px-10 py-4 rounded-full transition-all hover:shadow-lg hover:shadow-[#2ecc71]/20 flex items-center gap-2"
+              >
                 <Rocket size={18} />
                 Enroll for $249.99
-              </button>
+              </Link>
               <Link
                 href="/"
                 className="border border-[#ddd] hover:border-[#bbb] text-[#555] font-medium text-base px-8 py-4 rounded-full transition-colors"

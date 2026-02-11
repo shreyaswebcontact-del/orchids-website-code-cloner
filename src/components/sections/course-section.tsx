@@ -75,9 +75,10 @@ export default function CourseSection() {
           {MODULES_PREVIEW.map((mod) => {
             const Icon = mod.icon;
             return (
-              <div
+              <Link
                 key={mod.id}
-                className="group bg-[#fafafa] border border-[#eee] rounded-2xl p-6 hover:border-[#ccc] hover:shadow-sm transition-all"
+                href="/courses"
+                className="group bg-[#fafafa] border border-[#eee] rounded-2xl p-6 hover:border-[#ccc] hover:shadow-sm transition-all block"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div
@@ -94,7 +95,7 @@ export default function CourseSection() {
                   </span>
                 </div>
                 <h4 className="text-[#111] font-bold text-base">{mod.title}</h4>
-              </div>
+              </Link>
             );
           })}
         </div>
